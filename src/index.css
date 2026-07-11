@@ -1,0 +1,5 @@
+/* ===== MAIN ENTRY STYLESHEET ===== */
+@import './styles/reset.css';
+@import './styles/tokens.css';
+@import './styles/animations.css';
+@import './styles/globals.css';

@@ -1,0 +1,104 @@
+/* ===== GLOBAL STYLES ===== */
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  overflow-x: hidden;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+/* ===== FOCUS VISIBLE ===== */
+
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ===== SELECTION ===== */
+
+::selection {
+  background: var(--color-red-dark);
+  color: var(--color-white);
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-red-dark);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-red);
+}
+
+/* ===== UTILITIES ===== */
+
+.text-red    { color: var(--color-red-bright); }
+.text-muted  { color: var(--color-muted); }
+.text-white  { color: var(--color-white); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Technical grid background pattern */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(247,247,247,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247,247,247,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Red glow divider line */
+.red-line {
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-red), transparent);
+}
+
+.section-number {
+  font-family: var(--font-heading);
+  font-size: var(--size-6xl);
+  font-weight: 900;
+  color: rgba(247, 247, 247, 0.03);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}

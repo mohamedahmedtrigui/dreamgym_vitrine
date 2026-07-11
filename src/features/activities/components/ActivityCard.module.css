@@ -1,0 +1,150 @@
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  cursor: default;
+  min-height: 220px;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-red);
+  box-shadow: var(--shadow-red-sm);
+}
+
+.card:hover .halo {
+  opacity: 1;
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.card:hover .icon {
+  color: var(--color-red-bright);
+}
+
+.card:hover .content {
+  transform: translateY(-4px);
+}
+
+/* Grid spans */
+.span_wide {
+  grid-column: span 2;
+}
+
+.span_tall {
+  grid-row: span 2;
+}
+
+.span_normal {
+  /* default */
+}
+
+/* ===== INNER ===== */
+
+.inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ===== NUMBER ===== */
+
+.number {
+  font-family: var(--font-heading);
+  font-size: var(--size-xs);
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.15em;
+}
+
+/* ===== ICON ===== */
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: rgba(225, 6, 0, 0.08);
+  border: 1px solid rgba(225, 6, 0, 0.15);
+  margin-bottom: var(--space-2);
+}
+
+.icon {
+  color: var(--color-muted);
+  transition: color var(--transition-base);
+}
+
+/* ===== CONTENT ===== */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  transition: transform var(--transition-base);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--size-2xl);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 40ch;
+}
+
+/* ===== ARROW ===== */
+
+.arrow {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  color: var(--color-red);
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+}
+
+/* ===== HALO ===== */
+
+.halo {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 20% 80%, rgba(225,6,0,0.07) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE — force single column on mobile ===== */
+
+@media (max-width: 767px) {
+  .span_wide,
+  .span_tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
