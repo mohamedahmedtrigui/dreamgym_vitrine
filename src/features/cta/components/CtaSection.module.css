@@ -1,0 +1,106 @@
+.section {
+  position: relative;
+  padding: var(--space-32) 0;
+  background: var(--color-black);
+  overflow: hidden;
+  text-align: center;
+}
+
+.halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(225, 6, 0, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.metaNum {
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.15em;
+}
+
+.metaLabel {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.metaLabel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 1px;
+  background: var(--color-red);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.headingAccent {
+  color: var(--color-red-bright);
+  text-shadow: 0 0 80px rgba(255, 31, 22, 0.35);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--size-md);
+  color: var(--color-muted);
+  max-width: 50ch;
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.movingLight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-red), transparent);
+  pointer-events: none;
+}

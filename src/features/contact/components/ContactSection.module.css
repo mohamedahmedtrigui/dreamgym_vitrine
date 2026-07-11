@@ -1,0 +1,207 @@
+.section {
+  padding: var(--space-24) 0;
+  background: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-red-dark), transparent);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.metaNum {
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.15em;
+}
+
+.metaLabel {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.metaLabel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 1px;
+  background: var(--color-red);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-12);
+}
+
+.headingAccent {
+  color: var(--color-red-bright);
+}
+
+/* ===== LAYOUT ===== */
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+/* ===== INFO COL ===== */
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.gymName {
+  font-family: var(--font-heading);
+  font-size: var(--size-3xl);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+}
+
+.gymDesc {
+  font-size: var(--size-sm);
+  color: var(--color-muted);
+}
+
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-red);
+  color: var(--color-red);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted-dark);
+  margin-bottom: var(--space-1);
+}
+
+.contactValue {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--size-xl);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  transition: color var(--transition-fast);
+}
+
+.contactValue:hover {
+  color: var(--color-red-bright);
+}
+
+.contactValueMuted {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* ===== ACTIONS COL ===== */
+
+.actionsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionCard {
+  padding: var(--space-8);
+  background: var(--color-surface-light);
+  border: 1px solid var(--border-color);
+  border-left: 2px solid var(--color-red);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.actionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--size-2xl);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.actionDesc {
+  font-size: var(--size-sm);
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

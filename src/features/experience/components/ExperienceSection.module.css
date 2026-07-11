@@ -1,0 +1,222 @@
+.section {
+  position: relative;
+  padding: var(--space-24) 0;
+  background: var(--color-black-soft);
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND TEXT ===== */
+
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-heading);
+  font-size: clamp(10rem, 25vw, 22rem);
+  font-weight: 900;
+  color: rgba(247, 247, 247, 0.018);
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* ===== META ===== */
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.metaNum {
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  color: var(--color-red);
+  letter-spacing: 0.15em;
+}
+
+.metaLabel {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.metaLabel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 1px;
+  background: var(--color-red);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.headingAccent {
+  color: var(--color-red-bright);
+}
+
+/* ===== TIMELINE ===== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.pointRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.pointRow.right {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .pointRow {
+    justify-content: flex-start;
+    max-width: 60%;
+  }
+  .pointRow.right {
+    justify-content: flex-end;
+    align-self: flex-end;
+    max-width: 60%;
+    margin-left: auto;
+  }
+}
+
+.pointContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--border-color);
+  flex: 1;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.pointContent:hover {
+  border-color: var(--border-red);
+  box-shadow: var(--shadow-red-sm);
+}
+
+.pointLine {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-red-dark), transparent);
+  flex-shrink: 0;
+  display: none;
+}
+
+.pointRow.right .pointLine {
+  background: linear-gradient(to left, var(--color-red-dark), transparent);
+}
+
+@media (min-width: 768px) {
+  .pointLine {
+    display: block;
+  }
+}
+
+/* ===== ICON RING ===== */
+
+.iconRing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border-red);
+  color: var(--color-red);
+  flex-shrink: 0;
+  animation: pulseRed 3s ease-in-out infinite;
+}
+
+.pointTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--size-lg), 2.5vw, var(--size-2xl));
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+/* ===== QUOTE ===== */
+
+.quote {
+  text-align: center;
+  padding: var(--space-12) var(--space-8);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+.quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.quoteAccent {
+  color: var(--color-red-bright);
+}
+
+/* ===== DECORATIVE LINES ===== */
+
+.lineLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--color-red-dark), transparent);
+  opacity: 0.4;
+}
+
+.lineRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--color-red-dark), transparent);
+  opacity: 0.4;
+}
