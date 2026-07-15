@@ -9,19 +9,19 @@ import { getAssetPath } from '../../../shared/utils/assetPath'
 import styles from './CoachSection.module.css'
 const coaches = [
   {
-    name: 'Ahmed',
+    name: 'Mohamed Ahmed Trigui',
     role: 'Coach',
     image: getAssetPath('images/ahmed.jpg'),
     imagePosition: 'center 20%',
   },
   {
-    name: 'Wassim',
+    name: 'Wassim Ben Salah ',
     role: 'Coach',
     image: getAssetPath('images/wassim.jpg'),
     imagePosition: 'center 25%',
   },
   {
-    name: 'Gass',
+    name: 'Youssef Gassara ',
     role: 'Coach',
     image: getAssetPath('images/gass.jpg'),
     imagePosition: 'center 20%',
