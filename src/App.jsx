@@ -5,6 +5,8 @@ import { Marquee } from './shared/components/Marquee'
 import { AboutSection } from './features/about/components/AboutSection'
 import { ActivitiesSection } from './features/activities/components/ActivitiesSection'
 import { ExperienceSection } from './features/experience/components/ExperienceSection'
+import { TarifsSection } from './features/tarifs/components/TarifsSection'
+import { CoachSection } from './features/coach/components/CoachSection'
 import { CtaSection } from './features/cta/components/CtaSection'
 import { ContactSection } from './features/contact/components/ContactSection'
 import { Footer } from './features/footer/components/Footer'
@@ -32,6 +34,8 @@ export default function App() {
         <AboutSection />
         <ActivitiesSection />
         <ExperienceSection />
+        <TarifsSection />
+        <CoachSection />
         <CtaSection />
         <ContactSection />
       </main>

@@ -35,6 +35,8 @@ export const siteConfig = {
     { label: 'La salle', href: '#la-salle' },
     { label: 'Activités', href: '#activites' },
     { label: 'Pourquoi nous', href: '#experience' },
+    { label: 'Tarifs', href: '#tarifs' },
+    { label: 'Coach', href: '#coach' },
     { label: 'Contact', href: '#contact' },
   ],
 }
