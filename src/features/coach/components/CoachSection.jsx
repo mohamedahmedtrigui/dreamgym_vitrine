@@ -1,11 +1,32 @@
 import { motion } from 'framer-motion'
-import { Phone, Shield, Award, Zap, Sparkles } from 'lucide-react'
+import { Phone, Award, Zap, Sparkles } from 'lucide-react'
+
 import { AnimatedSection } from '../../../shared/components/AnimatedSection'
 import { Container } from '../../../shared/components/Container'
 import { SectionHeading } from '../../../shared/components/SectionHeading'
 import { getAssetPath } from '../../../shared/utils/assetPath'
-import styles from './CoachSection.module.css'
 
+import styles from './CoachSection.module.css'
+const coaches = [
+  {
+    name: 'Ahmed',
+    role: 'Coach',
+    image: getAssetPath('images/ahmed.jpg'),
+    imagePosition: 'center 20%',
+  },
+  {
+    name: 'Wassim',
+    role: 'Coach',
+    image: getAssetPath('images/wassim.jpg'),
+    imagePosition: 'center 25%',
+  },
+  {
+    name: 'Gass',
+    role: 'Coach',
+    image: getAssetPath('images/gass.jpg'),
+    imagePosition: 'center 20%',
+  },
+]
 function InstagramIcon({ size = 24, ...props }) {
   return (
     <svg
@@ -18,6 +39,7 @@ function InstagramIcon({ size = 24, ...props }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
       {...props}
     >
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -27,9 +49,32 @@ function InstagramIcon({ size = 24, ...props }) {
   )
 }
 
+function CoachCard({ coach, duplicate = false }) {
+  return (
+    <div className={styles.coachCard}>
+      <img
+        src={coach.image}
+        alt={duplicate ? '' : `Coach ${coach.name}`}
+        className={styles.staffAvatar}
+        style={{ objectPosition: coach.imagePosition }}
+        loading="lazy"
+      />
+
+      <div className={styles.coachInfo}>
+        <span className={styles.staffCoachName}>{coach.name}</span>
+        <span className={styles.coachRole}>{coach.role}</span>
+      </div>
+    </div>
+  )
+}
+
 export function CoachSection() {
   return (
-    <section id="coach" className={styles.section} aria-labelledby="coach-heading">
+    <section
+      id="coach"
+      className={styles.section}
+      aria-labelledby="coach-heading"
+    >
       <Container>
         <AnimatedSection delay={0}>
           <div className={styles.header}>
@@ -40,52 +85,124 @@ export function CoachSection() {
               subtitle="Entraîne-toi avec un professionnel certifié pour maximiser tes résultats."
               align="left"
             />
+
+            <div className={styles.staffContainer}>
+              <div className={styles.staffHeader}>
+                <span className={styles.staffTitle}>
+                  Notre staff de coachs
+                </span>
+
+                <span className={styles.staffSubtitle}>
+                  Une équipe professionnelle à votre écoute
+                </span>
+              </div>
+
+              <div
+                className={styles.coachesSlider}
+                aria-label="Liste de nos coachs"
+              >
+                <div className={styles.coachesTrack}>
+                  <div className={styles.coachesGroup}>
+                    {coaches.map((coach) => (
+                      <CoachCard
+                        key={coach.name}
+                        coach={coach}
+                      />
+                    ))}
+                  </div>
+
+                  <div
+                    className={styles.coachesGroup}
+                    aria-hidden="true"
+                  >
+                    {coaches.map((coach) => (
+                      <CoachCard
+                        key={`${coach.name}-duplicate`}
+                        coach={coach}
+                        duplicate
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
         <div className={styles.layout}>
-          {/* Left Column: Image with modern frame */}
+          {/* Colonne gauche : image du coach */}
           <div className={styles.imageCol}>
             <motion.div
               className={styles.imageWrapper}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               <img
                 src={getAssetPath('images/ahmed.jpg')}
                 alt="Coach Mohamed Ahmed Trigui"
                 className={styles.coachImage}
+                loading="lazy"
               />
-              <div className={styles.imageOverlay} />
-              <div className={styles.glowingFrame} />
+
+              <div
+                className={styles.imageOverlay}
+                aria-hidden="true"
+              />
+
+              <div
+                className={styles.glowingFrame}
+                aria-hidden="true"
+              />
             </motion.div>
           </div>
 
-          {/* Right Column: Bio, Offers, Alert, and CTAs */}
+          {/* Colonne droite : présentation et services */}
           <div className={styles.contentCol}>
             <AnimatedSection delay={0.1}>
-              <span className={styles.coachTitle}>Coach Certifié</span>
-              <h3 id="coach-heading" className={styles.coachName}>
+              <span className={styles.coachTitle}>
+                Coach certifié
+              </span>
+
+              <h3
+                id="coach-heading"
+                className={styles.coachName}
+              >
                 M. Ahmed Trigui
               </h3>
+
               <p className={styles.coachBio}>
-                Spécialiste de la transformation physique et de la préparation athlétique. Mohamed Ahmed Trigui vous propose un accompagnement sur mesure pour vous aider à dépasser vos limites et adopter un mode de vie sain.
+                Spécialiste de la transformation physique et de la
+                préparation athlétique, Mohamed Ahmed Trigui vous propose
+                un accompagnement sur mesure pour vous aider à dépasser
+                vos limites et à adopter un mode de vie sain.
               </p>
             </AnimatedSection>
 
-            {/* Coaching types */}
             <div className={styles.servicesGrid}>
               <AnimatedSection delay={0.15}>
                 <div className={styles.serviceCard}>
                   <div className={styles.serviceIconWrap}>
-                    <Award size={20} className={styles.serviceIcon} />
+                    <Award
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
                   </div>
+
                   <div>
-                    <h4 className={styles.serviceTitle}>Coaching Privé</h4>
+                    <h4 className={styles.serviceTitle}>
+                      Coaching privé
+                    </h4>
+
                     <p className={styles.serviceText}>
-                      Séances individuelles et personnalisées en salle de sport pour corriger vos postures et booster vos performances.
+                      Séances individuelles et personnalisées en salle
+                      pour corriger vos postures et améliorer vos
+                      performances.
                     </p>
                   </div>
                 </div>
@@ -94,45 +211,71 @@ export function CoachSection() {
               <AnimatedSection delay={0.2}>
                 <div className={styles.serviceCard}>
                   <div className={styles.serviceIconWrap}>
-                    <Zap size={20} className={styles.serviceIcon} />
+                    <Zap
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
                   </div>
+
                   <div>
-                    <h4 className={styles.serviceTitle}>Coaching en Ligne</h4>
+                    <h4 className={styles.serviceTitle}>
+                      Coaching en ligne
+                    </h4>
+
                     <p className={styles.serviceText}>
-                      Suivi à distance avec un plan d'entraînement et nutritionnel adapté à votre routine quotidienne.
+                      Suivi à distance avec un programme d’entraînement
+                      et un plan nutritionnel adaptés à votre routine
+                      quotidienne.
                     </p>
                   </div>
                 </div>
               </AnimatedSection>
             </div>
 
-            {/* Special Promo Alert */}
             <AnimatedSection delay={0.25}>
               <div className={styles.promoAlert}>
                 <div className={styles.promoBadge}>
-                  <Sparkles size={14} className={styles.promoBadgeIcon} />
+                  <Sparkles
+                    size={14}
+                    className={styles.promoBadgeIcon}
+                    aria-hidden="true"
+                  />
+
                   <span>Promo</span>
                 </div>
+
                 <div className={styles.promoContent}>
                   <p className={styles.promoText}>
-                    <strong>Offre spéciale coaching en ligne !</strong> Profitez d'une réduction exclusive. Contactez directement <strong>Mohamed Ahmed Trigui</strong> pour en savoir plus.
+                    <strong>
+                      Offre spéciale coaching en ligne !
+                    </strong>{' '}
+                    Profitez d’une réduction exclusive. Contactez
+                    directement{' '}
+                    <strong>Mohamed Ahmed Trigui</strong> pour en savoir
+                    plus.
                   </p>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Contact Actions */}
             <AnimatedSection delay={0.3}>
               <div className={styles.actions}>
                 <a
-                  href="tel:53387940"
+                  href="tel:+21653387940"
                   className={styles.phoneButton}
-                  aria-label="Appeler Mohamed Ahmed Trigui au 53 38 79 40"
+                  aria-label="Appeler Mohamed Ahmed Trigui au 53 387 940"
                 >
-                  <Phone size={20} />
+                  <Phone size={20} aria-hidden="true" />
+
                   <div className={styles.phoneButtonContent}>
-                    <span className={styles.phoneLabel}>Appeler Directement</span>
-                    <span className={styles.phoneNum}>53 387 940</span>
+                    <span className={styles.phoneLabel}>
+                      Appeler directement
+                    </span>
+
+                    <span className={styles.phoneNum}>
+                      53 387 940
+                    </span>
                   </div>
                 </a>
 
