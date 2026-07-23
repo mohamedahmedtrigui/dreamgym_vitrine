@@ -1,11 +1,15 @@
 import { ArrowUpRight, CalendarDays, HeartPulse } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { getAssetPath } from '../../../shared/utils/assetPath'
 import styles from './ActivityCard.module.css'
 
 export function ActivityCard({ activity, index }) {
   const Icon = activity.icon
   const isFeatured = activity.featured
   const cardClassName = `${styles.card} ${styles[`span_${activity.span}`]} ${isFeatured ? styles.featuredCard : ''}`
+  const cardStyle = isFeatured
+    ? { '--featured-image': `url("${getAssetPath('images/hazar.png')}")` }
+    : undefined
 
   return (
     <motion.article
@@ -15,6 +19,7 @@ export function ActivityCard({ activity, index }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ delay: index * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       aria-label={`Activité : ${activity.title}`}
+      style={cardStyle}
     >
       <div className={styles.inner}>
         <span className={styles.number} aria-hidden="true">{activity.id}</span>
