@@ -26,6 +26,12 @@ const coaches = [
     image: getAssetPath('images/gass.jpg'),
     imagePosition: 'center 20%',
   },
+  {
+    name: 'Hazar',
+    role: 'Coach Aérobic',
+    image: getAssetPath('images/hazar.png'),
+    imagePosition: 'center 18%',
+  },
 ]
 function InstagramIcon({ size = 24, ...props }) {
   return (
