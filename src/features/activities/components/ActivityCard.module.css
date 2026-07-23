@@ -148,3 +148,197 @@
     grid-row: span 1;
   }
 }
+
+/* ===== FEATURED AEROBIC CARD ===== */
+
+.featuredCard {
+  min-height: 420px;
+  background:
+    linear-gradient(135deg, rgba(225, 6, 93, 0.22), rgba(5, 5, 5, 0.88) 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  border-color: rgba(255, 65, 145, 0.36);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 65, 145, 0.18), transparent 34%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 12px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.featuredCard:hover {
+  border-color: rgba(255, 65, 145, 0.72);
+  box-shadow: 0 0 38px rgba(225, 6, 93, 0.24);
+}
+
+.featuredCard .inner {
+  gap: var(--space-5);
+}
+
+.featuredCard .iconWrap {
+  background: rgba(255, 65, 145, 0.16);
+  border-color: rgba(255, 65, 145, 0.32);
+}
+
+.featuredCard .icon {
+  color: #ff4f9a;
+}
+
+.featuredCard .title {
+  color: var(--color-white);
+}
+
+.featuredCard .desc {
+  max-width: 56ch;
+  color: rgba(247, 247, 247, 0.82);
+}
+
+.featuredEyebrow {
+  width: fit-content;
+  font-family: var(--font-heading);
+  font-size: var(--size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ff4f9a;
+  letter-spacing: 0.12em;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgba(255, 65, 145, 0.36);
+  background: rgba(255, 65, 145, 0.12);
+  border-radius: var(--radius-sm);
+}
+
+.aerobicPanel {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.coachBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: #d7065f;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  box-shadow: 0 0 18px rgba(215, 6, 95, 0.35);
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 700;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+}
+
+.detailList {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.detailList li {
+  position: relative;
+  padding-left: var(--space-5);
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  line-height: 1.55;
+  color: rgba(247, 247, 247, 0.82);
+}
+
+.detailList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  background: #ff4f9a;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 79, 154, 0.6);
+}
+
+.scheduleBox {
+  padding: var(--space-4);
+  border: 1px solid rgba(255, 65, 145, 0.28);
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: var(--radius-md);
+}
+
+.scheduleTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.scheduleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.scheduleItem {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+}
+
+.scheduleDay {
+  font-family: var(--font-heading);
+  font-size: var(--size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ff4f9a;
+}
+
+.scheduleTime {
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.featuredCard .halo {
+  background: linear-gradient(90deg, rgba(255, 65, 145, 0.14), transparent 70%);
+}
+
+@media (max-width: 767px) {
+  .featuredCard {
+    min-height: 0;
+  }
+
+  .scheduleGrid {
+    grid-template-columns: 1fr;
+  }
+}

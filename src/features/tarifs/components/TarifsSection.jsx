@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Dumbbell, Flame, Check, AlertCircle } from 'lucide-react'
+import { Dumbbell, Flame, Check, AlertCircle, Trophy } from 'lucide-react'
 import { AnimatedSection } from '../../../shared/components/AnimatedSection'
 import { Container } from '../../../shared/components/Container'
 import { SectionHeading } from '../../../shared/components/SectionHeading'
@@ -15,6 +15,11 @@ export function TarifsSection() {
     { sessions: '2 fois / semaine', price: 40 },
     { sessions: '3 fois / semaine', price: 50 },
     { sessions: '4 fois / semaine', price: 60 },
+  ]
+
+  const activityPrices = [
+    { sessions: 'Aérobic', price: 50 },
+    { sessions: 'Kung-fu', price: 50 },
   ]
 
   return (
@@ -124,6 +129,44 @@ export function TarifsSection() {
                 <li>Accès aux équipements de force</li>
                 <li>Conseils d'utilisation des machines</li>
                 <li>Espace charges libres complet</li>
+              </ul>
+            </div>
+          </motion.div>
+          {/* Card 3: Activities */}
+          <motion.div
+            className={styles.card}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={styles.cardHeader}>
+              <div className={styles.iconWrap}>
+                <Trophy size={24} className={styles.iconActivities} />
+              </div>
+              <h3 className={styles.cardTitle}>Activités</h3>
+              <p className={styles.cardDesc}>Pour varier ton entraînement avec des cours énergiques et disciplinés.</p>
+            </div>
+
+            <div className={styles.pricingList}>
+              {activityPrices.map((item, index) => (
+                <div key={index} className={styles.pricingRow}>
+                  <div className={styles.sessionInfo}>
+                    <Check size={16} className={styles.checkIcon} />
+                    <span>{item.sessions}</span>
+                  </div>
+                  <div className={styles.priceContainer}>
+                    <span className={styles.price}>{item.price} <span className={styles.currency}>DT</span></span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.cardFooter}>
+              <ul className={styles.featuresList}>
+                <li>Cours collectifs encadrés</li>
+                <li>Progression technique</li>
+                <li>Énergie et discipline</li>
               </ul>
             </div>
           </motion.div>

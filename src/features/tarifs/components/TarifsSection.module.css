@@ -72,6 +72,13 @@
   }
 }
 
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1180px;
+  }
+}
+
 /* Pricing Cards */
 .card {
   display: flex;
@@ -120,6 +127,10 @@
 
 .iconMusculation {
   color: var(--color-red-bright);
+}
+
+.iconActivities {
+  color: #f7f7f7;
 }
 
 .cardTitle {
