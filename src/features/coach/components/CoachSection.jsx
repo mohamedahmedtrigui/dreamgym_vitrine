@@ -7,6 +7,7 @@ import { SectionHeading } from '../../../shared/components/SectionHeading'
 import { getAssetPath } from '../../../shared/utils/assetPath'
 
 import styles from './CoachSection.module.css'
+
 const coaches = [
   {
     name: 'Ahmed',
@@ -32,7 +33,14 @@ const coaches = [
     image: getAssetPath('images/hazar.png'),
     imagePosition: 'center 18%',
   },
+  {
+    name: 'Ali Hdiji',
+    role: 'Coach Gymnastique',
+    image: getAssetPath('images/ali.jpg'),
+    imagePosition: 'center 20%',
+  },
 ]
+
 function InstagramIcon({ size = 24, ...props }) {
   return (
     <svg

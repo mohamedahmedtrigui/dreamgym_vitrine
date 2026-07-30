@@ -6,9 +6,11 @@ import styles from './ActivityCard.module.css'
 export function ActivityCard({ activity, index }) {
   const Icon = activity.icon
   const isFeatured = activity.featured
-  const cardClassName = `${styles.card} ${styles[`span_${activity.span}`]} ${isFeatured ? styles.featuredCard : ''}`
+  const featuredImage = activity.featuredImage || 'images/hazar.png'
+  const featuredTypeClass = activity.featuredType ? styles[activity.featuredType] : ''
+  const cardClassName = `${styles.card} ${styles[`span_${activity.span}`]} ${isFeatured ? styles.featuredCard : ''} ${featuredTypeClass}`
   const cardStyle = isFeatured
-    ? { '--featured-image': `url("${getAssetPath('images/hazar.png')}")` }
+    ? { '--featured-image': `url("${getAssetPath(featuredImage)}")` }
     : undefined
 
   return (
@@ -40,7 +42,7 @@ export function ActivityCard({ activity, index }) {
                 <span>{activity.coach}</span>
               </div>
 
-              <div className={styles.tagList} aria-label="Points forts de l'aérobic">
+              <div className={styles.tagList} aria-label={`Points forts de ${activity.title}`}>
                 {activity.tags.map((tag) => (
                   <span key={tag} className={styles.tag}>{tag}</span>
                 ))}
@@ -52,21 +54,7 @@ export function ActivityCard({ activity, index }) {
                 ))}
               </ul>
 
-              <div className={styles.scheduleBox}>
-                <div className={styles.scheduleTitle}>
-                  <CalendarDays size={16} aria-hidden="true" />
-                  <span>Horaires des cours</span>
-                </div>
 
-                <div className={styles.scheduleGrid}>
-                  {activity.schedule.map((slot) => (
-                    <div key={slot.day} className={styles.scheduleItem}>
-                      <span className={styles.scheduleDay}>{slot.day}</span>
-                      <span className={styles.scheduleTime}>{slot.time}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
         </div>
