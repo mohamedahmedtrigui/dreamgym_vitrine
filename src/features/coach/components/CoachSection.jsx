@@ -39,6 +39,12 @@ const coaches = [
     image: getAssetPath('images/ali.jpg'),
     imagePosition: 'center 20%',
   },
+  {
+    name: 'Kais & Mahdi',
+    role: 'Coachs Kung-fu',
+    image: getAssetPath('images/kungfu_bg.png'),
+    imagePosition: 'center 30%',
+  },
 ]
 
 function InstagramIcon({ size = 24, ...props }) {

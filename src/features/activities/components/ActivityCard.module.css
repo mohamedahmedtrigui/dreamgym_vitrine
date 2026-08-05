@@ -431,6 +431,78 @@
     linear-gradient(90deg, rgba(225, 6, 0, 0.12), transparent 70%);
 }
 
+/* ===== FEATURED KUNG-FU CARD (COACHS KAIS & MAHDI) ===== */
+
+.kungfu {
+  background:
+    radial-gradient(ellipse 75% 95% at 0% 35%, rgba(245, 166, 35, 0.42) 0%, rgba(225, 100, 0, 0.18) 38%, transparent 72%),
+    linear-gradient(105deg, rgba(35, 20, 5, 0.96) 0%, rgba(15, 10, 5, 0.9) 46%, rgba(5, 5, 5, 0.78) 100%);
+  border-color: rgba(245, 166, 35, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 70px rgba(245, 166, 35, 0.14);
+}
+
+.kungfu::before {
+  background:
+    linear-gradient(90deg, rgba(245, 166, 35, 0.22), rgba(245, 166, 35, 0.08) 24%, rgba(5, 5, 5, 0.28) 58%, rgba(5, 5, 5, 0.82) 100%),
+    radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.12), transparent 28%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 12px);
+}
+
+.kungfu::after {
+  background-image:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.62) 22%, rgba(5, 5, 5, 0.16) 54%, rgba(245, 166, 35, 0.16) 100%),
+    var(--featured-image);
+  background-position: center center;
+  opacity: 0.88;
+  filter: saturate(1.15) contrast(1.1);
+}
+
+.kungfu:hover {
+  border-color: rgba(245, 166, 35, 0.75);
+  box-shadow: 0 0 38px rgba(245, 166, 35, 0.28);
+}
+
+.kungfu .iconWrap {
+  background: rgba(245, 166, 35, 0.16);
+  border-color: rgba(245, 166, 35, 0.32);
+}
+
+.kungfu .icon {
+  color: #f5a623;
+}
+
+.kungfu .featuredEyebrow {
+  color: #f5a623;
+  border-color: rgba(245, 166, 35, 0.36);
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.kungfu .coachBadge {
+  background: linear-gradient(135deg, #f5a623, #d07000);
+  box-shadow: 0 0 18px rgba(245, 166, 35, 0.35);
+}
+
+.kungfu .detailList li::before {
+  background: #f5a623;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.6);
+}
+
+.kungfu .scheduleBox {
+  border-color: rgba(245, 166, 35, 0.28);
+}
+
+.kungfu .scheduleDay {
+  color: #f5a623;
+}
+
+.kungfu .halo {
+  background:
+    radial-gradient(ellipse 36% 48% at 18% 58%, rgba(245, 166, 35, 0.28), transparent 72%),
+    linear-gradient(90deg, rgba(245, 166, 35, 0.12), transparent 70%);
+}
+
 @media (max-width: 767px) {
   .featuredCard {
     min-height: 0;
