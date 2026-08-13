@@ -8,6 +8,7 @@ import { ExperienceSection } from './features/experience/components/ExperienceSe
 import { TarifsSection } from './features/tarifs/components/TarifsSection'
 import { CoachSection } from './features/coach/components/CoachSection'
 import { ContactSection } from './features/contact/components/ContactSection'
+import { SportChallengeSection } from './features/sportChallenge/components/SportChallengeSection'
 import { Footer } from './features/footer/components/Footer'
 
 const MARQUEE_ITEMS = [
@@ -36,6 +37,7 @@ export default function App() {
         <TarifsSection />
         <CoachSection />
         <ContactSection />
+        <SportChallengeSection />
       </main>
 
       <Footer />

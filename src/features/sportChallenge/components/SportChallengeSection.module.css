@@ -1,0 +1,460 @@
+.section {
+  position: relative;
+  padding: var(--space-16) 0;
+  background:
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-black) 100%);
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 64px),
+    linear-gradient(90deg, rgba(225, 6, 0, 0.12), transparent 42%, rgba(255, 255, 255, 0.025));
+  pointer-events: none;
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid var(--color-red-bright);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025) 42%, rgba(225, 6, 0, 0.08)),
+    var(--color-black-soft);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.panel::after {
+  content: 'PLAY';
+  position: absolute;
+  right: clamp(-1.5rem, 1vw, 1rem);
+  bottom: -1.8rem;
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 15vw, 12rem);
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+}
+
+@media (min-width: 900px) {
+  .panel {
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    padding: var(--space-8);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 10px;
+  border: 1px solid rgba(225, 6, 0, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(225, 6, 0, 0.1);
+  color: var(--color-red-bright);
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 9ch;
+  color: var(--color-white);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 0.9;
+}
+
+.heading span {
+  color: var(--color-red-bright);
+}
+
+.text {
+  max-width: 42ch;
+  font-size: var(--size-sm);
+  color: rgba(247, 247, 247, 0.76);
+}
+
+.challengeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.challengePill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.challengePill svg {
+  color: var(--color-red-bright);
+  flex: 0 0 auto;
+}
+
+.game {
+  position: relative;
+  z-index: 1;
+  min-height: 190px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 50%),
+    radial-gradient(circle at 78% 36%, rgba(225, 6, 0, 0.34), transparent 24%),
+    #080809;
+  overflow: hidden;
+}
+
+.scoreBoard {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.34);
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.scoreBoard strong {
+  color: var(--color-red-bright);
+  animation: blinkGo 1.1s ease-in-out infinite;
+}
+
+.track {
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-7);
+  height: 92px;
+}
+
+.trackLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
+}
+
+.trackLine:nth-child(1) {
+  top: 12px;
+}
+
+.trackLine:nth-child(2) {
+  top: 46px;
+}
+
+.trackLine:nth-child(3) {
+  top: 80px;
+}
+
+.finishLine {
+  position: absolute;
+  top: 0;
+  right: 9%;
+  width: 8px;
+  height: 92px;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.92) 25%, transparent 25% 50%, rgba(255, 255, 255, 0.92) 50% 75%, transparent 75%),
+    var(--color-red);
+  background-size: 8px 8px;
+  box-shadow: 0 0 22px rgba(255, 31, 22, 0.5);
+}
+
+.runner {
+  position: absolute;
+  left: 4%;
+  bottom: 16px;
+  width: 54px;
+  height: 58px;
+  animation: runAcross 2.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  transform-origin: 50% 100%;
+}
+
+.runnerHead,
+.runnerBody,
+.runnerArmOne,
+.runnerArmTwo,
+.runnerLegOne,
+.runnerLegTwo {
+  position: absolute;
+  display: block;
+  background: var(--color-white);
+  box-shadow: 0 0 14px rgba(255, 31, 22, 0.28);
+}
+
+.runnerHead {
+  top: 0;
+  left: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-red-bright);
+}
+
+.runnerBody {
+  top: 16px;
+  left: 24px;
+  width: 10px;
+  height: 26px;
+  border-radius: 999px;
+  transform: rotate(16deg);
+}
+
+.runnerArmOne,
+.runnerArmTwo,
+.runnerLegOne,
+.runnerLegTwo {
+  width: 8px;
+  height: 28px;
+  border-radius: 999px;
+  transform-origin: top center;
+}
+
+.runnerArmOne {
+  top: 20px;
+  left: 20px;
+  animation: limbForward 0.42s ease-in-out infinite alternate;
+}
+
+.runnerArmTwo {
+  top: 20px;
+  left: 32px;
+  background: rgba(247, 247, 247, 0.72);
+  animation: limbBack 0.42s ease-in-out infinite alternate;
+}
+
+.runnerLegOne {
+  top: 38px;
+  left: 23px;
+  background: var(--color-red-bright);
+  animation: limbBack 0.42s ease-in-out infinite alternate;
+}
+
+.runnerLegTwo {
+  top: 38px;
+  left: 32px;
+  animation: limbForward 0.42s ease-in-out infinite alternate;
+}
+
+.target {
+  position: absolute;
+  right: 5%;
+  top: 21px;
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255, 31, 22, 0.82);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 8px rgba(255, 31, 22, 0.1),
+    0 0 28px rgba(255, 31, 22, 0.48);
+  animation: targetPulse 1.4s ease-in-out infinite;
+}
+
+.sparkOne,
+.sparkTwo,
+.sparkThree {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-red-bright);
+  box-shadow: 0 0 16px rgba(255, 31, 22, 0.8);
+  opacity: 0;
+  animation: spark 2.8s ease-in-out infinite;
+}
+
+.sparkOne {
+  right: 18%;
+  top: 8px;
+}
+
+.sparkTwo {
+  right: 11%;
+  top: 62px;
+  animation-delay: 0.18s;
+}
+
+.sparkThree {
+  right: 25%;
+  top: 44px;
+  animation-delay: 0.32s;
+}
+
+@keyframes runAcross {
+  0% {
+    left: 4%;
+    transform: translateY(0) scale(0.92);
+  }
+
+  50% {
+    left: calc(82% - 54px);
+    transform: translateY(-7px) scale(1.04);
+  }
+
+  100% {
+    left: 4%;
+    transform: translateY(0) scale(0.92);
+  }
+}
+
+@keyframes limbForward {
+  from {
+    transform: rotate(-46deg);
+  }
+
+  to {
+    transform: rotate(48deg);
+  }
+}
+
+@keyframes limbBack {
+  from {
+    transform: rotate(50deg);
+  }
+
+  to {
+    transform: rotate(-44deg);
+  }
+}
+
+@keyframes targetPulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes spark {
+  42% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  52% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  68% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.2);
+  }
+}
+
+@keyframes blinkGo {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .panel {
+    padding: var(--space-5);
+  }
+
+  .game {
+    min-height: 168px;
+  }
+
+  .track {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-5);
+  }
+
+  .runner {
+    animation-name: runAcrossMobile;
+  }
+}
+
+@keyframes runAcrossMobile {
+  0% {
+    left: 4%;
+    transform: translateY(0) scale(0.86);
+  }
+
+  50% {
+    left: calc(78% - 54px);
+    transform: translateY(-6px) scale(0.98);
+  }
+
+  100% {
+    left: 4%;
+    transform: translateY(0) scale(0.86);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runner,
+  .runnerArmOne,
+  .runnerArmTwo,
+  .runnerLegOne,
+  .runnerLegTwo,
+  .target,
+  .sparkOne,
+  .sparkTwo,
+  .sparkThree,
+  .scoreBoard strong {
+    animation: none;
+  }
+
+  .runner {
+    transform: translateX(42%) scale(0.96);
+  }
+}
