@@ -107,15 +107,7 @@ export function CoachSection() {
             />
 
             <div className={styles.staffContainer}>
-              <div className={styles.staffHeader}>
-                <span className={styles.staffTitle}>
-                  Notre staff de coachs
-                </span>
-
-                <span className={styles.staffSubtitle}>
-                  Une équipe professionnelle à votre écoute
-                </span>
-              </div>
+             
 
               <div
                 className={styles.coachesSlider}
