@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion'
-import { Phone, Award, Zap, Sparkles } from 'lucide-react'
+import {
+  Phone,
+  Award,
+  Zap,
+  Sparkles,
+  Dumbbell,
+  Activity,
+  Target,
+  Heart,
+  Flame,
+} from 'lucide-react'
 
+import { siteConfig } from '../../../config/siteConfig'
 import { AnimatedSection } from '../../../shared/components/AnimatedSection'
 import { Container } from '../../../shared/components/Container'
 import { SectionHeading } from '../../../shared/components/SectionHeading'
@@ -16,13 +27,13 @@ const coaches = [
     imagePosition: 'center 20%',
   },
   {
-    name: 'Wassim Ben Salah ',
+    name: 'Wassim Ben Salah',
     role: 'Coach',
     image: getAssetPath('images/wassim.jpg'),
     imagePosition: 'center 25%',
   },
   {
-    name: 'Youssef Gassara ',
+    name: 'Youssef Gassara',
     role: 'Coach',
     image: getAssetPath('images/gass.jpg'),
     imagePosition: 'center 20%',
@@ -69,6 +80,26 @@ function InstagramIcon({ size = 24, ...props }) {
   )
 }
 
+function FacebookIcon({ size = 24, ...props }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  )
+}
+
 function CoachCard({ coach, duplicate = false }) {
   return (
     <div className={styles.coachCard}>
@@ -107,8 +138,6 @@ export function CoachSection() {
             />
 
             <div className={styles.staffContainer}>
-             
-
               <div
                 className={styles.coachesSlider}
                 aria-label="Liste de nos coachs"
@@ -141,6 +170,9 @@ export function CoachSection() {
           </div>
         </AnimatedSection>
 
+        {/* =========================================
+            SECTION COACH : MOHAMED AHMED TRIGUI
+        ========================================= */}
         <div className={styles.layout}>
           {/* Colonne gauche : image du coach */}
           <div className={styles.imageCol}>
@@ -300,6 +332,217 @@ export function CoachSection() {
                 >
                   <InstagramIcon size={20} />
                   <span>Suivre sur Instagram</span>
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+
+        {/* =========================================
+            SECTION COACH : WASSIM BEN SALAH
+        ========================================= */}
+        <div className={`${styles.layout} ${styles.secondCoachLayout}`}>
+          {/* Colonne gauche : photo / affiche du coach */}
+          <div className={styles.imageCol}>
+            <motion.div
+              className={`${styles.imageWrapper} ${styles.posterWrapper}`}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <img
+                src={getAssetPath('images/wassim_poster.jpg')}
+                alt="Coach Wassim Ben Salah - Dream Gym"
+                className={styles.posterImage}
+                loading="lazy"
+              />
+
+              <div
+                className={styles.posterOverlay}
+                aria-hidden="true"
+              />
+
+              <div
+                className={styles.glowingFrame}
+                aria-hidden="true"
+              />
+            </motion.div>
+          </div>
+
+          {/* Colonne droite : présentation et services */}
+          <div className={styles.contentCol}>
+            <AnimatedSection delay={0.1}>
+              <span className={styles.coachTitle}>
+                Coach certifié
+              </span>
+
+              <h3
+                id="coach-wassim-heading"
+                className={styles.coachName}
+              >
+                Wassim Ben Salah
+              </h3>
+
+              <p className={styles.coachBio}>
+                Spécialiste de la musculation, du cardio et du dépassement de
+                soi, Wassim Ben Salah vous transmet sa rigueur et sa passion.
+                Sous la devise <em>« Plus fort chaque jour »</em>, bénéficiez d'un
+                accompagnement complet pour transformer votre physique et
+                développer votre force.
+              </p>
+            </AnimatedSection>
+
+            <div className={styles.servicesGrid}>
+              <AnimatedSection delay={0.15}>
+                <div className={styles.serviceCard}>
+                  <div className={styles.serviceIconWrap}>
+                    <Dumbbell
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className={styles.serviceTitle}>
+                      Musculation
+                    </h4>
+
+                    <p className={styles.serviceText}>
+                      Équipements modernes et séances intensives adaptées à
+                      vos objectifs de force et de volume musculaire.
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.2}>
+                <div className={styles.serviceCard}>
+                  <div className={styles.serviceIconWrap}>
+                    <Activity
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className={styles.serviceTitle}>
+                      Cardio & Santé
+                    </h4>
+
+                    <p className={styles.serviceText}>
+                      Entraînements dynamiques pour développer votre endurance,
+                      brûler les graisses et booster votre vitalité.
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.25}>
+                <div className={styles.serviceCard}>
+                  <div className={styles.serviceIconWrap}>
+                    <Target
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className={styles.serviceTitle}>
+                      Coaching Personnalisé
+                    </h4>
+
+                    <p className={styles.serviceText}>
+                      Suivi individuel et exercices adaptés pour une
+                      progression continue, rapide et sécurisée.
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.3}>
+                <div className={styles.serviceCard}>
+                  <div className={styles.serviceIconWrap}>
+                    <Heart
+                      size={20}
+                      className={styles.serviceIcon}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div>
+                    <h4 className={styles.serviceTitle}>
+                      Bien-être & Corps
+                    </h4>
+
+                    <p className={styles.serviceText}>
+                      Harmonie corps et esprit pour évacuer le stress et
+                      adopter un mode de vie sain et énergique.
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            <AnimatedSection delay={0.35}>
+              <div className={styles.promoAlert}>
+                <div className={styles.promoBadge}>
+                  <Flame
+                    size={14}
+                    className={styles.promoBadgeIcon}
+                    aria-hidden="true"
+                  />
+
+                  <span>Motivation</span>
+                </div>
+
+                <div className={styles.promoContent}>
+                  <p className={styles.promoText}>
+                    <strong>
+                      Discipline aujourd'hui, résultats demain !
+                    </strong>{' '}
+                    Rejoignez Coach <strong>Wassim Ben Salah</strong> au
+                    centre Dream Gym (Route Mahdia km7).
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.4}>
+              <div className={styles.actions}>
+                <a
+                  href="tel:+21674893389"
+                  className={styles.phoneButton}
+                  aria-label="Appeler Dream Gym au 74 893 389"
+                >
+                  <Phone size={20} aria-hidden="true" />
+
+                  <div className={styles.phoneButtonContent}>
+                    <span className={styles.phoneLabel}>
+                      Appeler directement
+                    </span>
+
+                    <span className={styles.phoneNum}>
+                      74 893 389
+                    </span>
+                  </div>
+                </a>
+
+                <a
+                  href={siteConfig.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.instaButton}
+                  aria-label="Suivre Dream Gym sur Facebook"
+                >
+                  <FacebookIcon size={20} />
+                  <span>Dream Gym Facebook</span>
                 </a>
               </div>
             </AnimatedSection>
