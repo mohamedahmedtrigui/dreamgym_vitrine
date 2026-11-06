@@ -517,9 +517,9 @@ export function CoachSection() {
             <AnimatedSection delay={0.4}>
               <div className={styles.actions}>
                 <a
-                  href="tel:+21674893389"
+                  href="tel:+21697677309"
                   className={styles.phoneButton}
-                  aria-label="Appeler Dream Gym au 74 893 389"
+                  aria-label="Appeler Coach Wassim Ben Salah au 97 677 309"
                 >
                   <Phone size={20} aria-hidden="true" />
 
@@ -529,7 +529,7 @@ export function CoachSection() {
                     </span>
 
                     <span className={styles.phoneNum}>
-                      74 893 389
+                      97 677 309
                     </span>
                   </div>
                 </a>
