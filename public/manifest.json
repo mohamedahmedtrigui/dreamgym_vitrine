@@ -1,0 +1,81 @@
+{
+  "name": "Dream Gym — Centre de remise en forme",
+  "short_name": "Dream Gym",
+  "description": "Salle de sport et remise en forme pour femmes, hommes et enfants — No Pain. No Gain. Just Results.",
+  "id": "/dreamgym_vitrine/",
+  "start_url": "/dreamgym_vitrine/",
+  "scope": "/dreamgym_vitrine/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#050505",
+  "theme_color": "#e10600",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "categories": ["fitness", "sports", "lifestyle"],
+  "icons": [
+    {
+      "src": "/dreamgym_vitrine/images/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/dreamgym_vitrine/images/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/dreamgym_vitrine/images/pwa-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/dreamgym_vitrine/images/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nos Tarifs",
+      "short_name": "Tarifs",
+      "description": "Consulter les offres et abonnements",
+      "url": "/dreamgym_vitrine/#tarifs",
+      "icons": [
+        {
+          "src": "/dreamgym_vitrine/images/pwa-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Nos Coachs",
+      "short_name": "Coachs",
+      "description": "Découvrir l'équipe de coachs professionnels",
+      "url": "/dreamgym_vitrine/#coach",
+      "icons": [
+        {
+          "src": "/dreamgym_vitrine/images/pwa-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact & Accès",
+      "short_name": "Contact",
+      "description": "Adresse Route Mahdia km7 et numéros de téléphone",
+      "url": "/dreamgym_vitrine/#contact",
+      "icons": [
+        {
+          "src": "/dreamgym_vitrine/images/pwa-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
+
